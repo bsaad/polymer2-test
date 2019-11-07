@@ -3,7 +3,7 @@
 import service from "./service.js";
 
 
-class NestedChild extends Polymer.Element {
+export default class NestedChild extends Polymer.Element {
     static get is() { return 'nested-child'; }
     static get properties() {
       return {
@@ -12,6 +12,17 @@ class NestedChild extends Polymer.Element {
           value: 'nested-child'
         }
       };
+    }
+
+    static get template() {
+      return Polymer.html`
+      <style>
+      :host {
+        display: block;
+      }
+      </style>
+      <h2>Hello [[prop1]] from childddd!</h2>
+      `;
     }
 
     constructor() {
