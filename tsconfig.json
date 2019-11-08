@@ -5,7 +5,12 @@
       "module": "es6",
       "moduleResolution": "node",
       "experimentalDecorators": true,
-      "noImplicitAny": true
+      "noImplicitAny": true,
+      // "lib": ["es6"]
     },
+    "include": [
+      "bower_components/*.ts",
+      "./*.ts"
+      ],
     "exclude": ["node_modules"]
-  }
+  } 

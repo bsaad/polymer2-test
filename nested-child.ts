@@ -1,27 +1,42 @@
-/// <reference path="./bower_components/polymer/types/polymer-element.d.ts" />`
+/// <reference path="./bower_components/polymer/types/polymer-element.d.ts" />
+/// <reference path="./bower_components/polymer-decorators/polymer-decorators.d.ts" />
 
-import service from "./service.js";
+const {customElement, property} = Polymer.decorators;
 
 
+// import service from "./service"
+
+@customElement('nested-child')
 class NestedChild extends Polymer.Element {
-    static get is() { return 'nested-child'; }
-    static get properties() {
-      return {
-        prop1: {
-          type: String,
-          value: 'nested-child'
-        }
-      };
-    }
+
+  @property({type: String})
+  private prop1: string = "yoyo"
+  private service: Service;
 
     constructor() {
         super();
-        const data = service.getData()
-        console.log("data")
+        this.service = new Service();
+        this.logResult();
+        
+    }
+
+    async logResult() {
+      const data = await this.service.getData()
+      console.log("data", data);
     }
   }
 
-  document.addEventListener('WebComponentsReady', () => {
-    window.customElements.define(NestedChild.is, NestedChild);
-  });
+  class Service  {
+
+    public async getData () {
+        await this.timeout(1000);
+
+        return {"value":"42"};
+
+    }
+
+    timeout(ms: number) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+  }
   

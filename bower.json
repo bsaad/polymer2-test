@@ -2,7 +2,8 @@
   "name": "polymer-dep-test",
   "main": "polymer-dep-test.html",
   "dependencies": {
-    "polymer": "Polymer/polymer#^2.0.0"
+    "polymer": "Polymer/polymer#^2.5.0",
+    "polymer-decorators": "Polymer/polymer-decorators#^2.1.0"
   },
   "devDependencies": {
     "iron-demo-helpers": "PolymerElements/iron-demo-helpers#^2.0.0",
@@ -10,6 +11,6 @@
     "webcomponentsjs": "webcomponents/webcomponentsjs#^1.0.0"
   },
   "resolutions": {
-    "polymer": "^2.0.0"
+    "polymer": "^2.5.0"
   }
 }
