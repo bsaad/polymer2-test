@@ -19,3 +19,4 @@ class Service {
     }
 }
 export default new Service();
+//# sourceMappingURL=service.js.map

@@ -16,17 +16,16 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 const { customElement, property } = Polymer.decorators;
-// import service from "./service"
+import service from "./service";
 let NestedChild = class NestedChild extends Polymer.Element {
     constructor() {
         super();
         this.prop1 = "yoyo";
-        this.service = new Service();
         this.logResult();
     }
     logResult() {
         return __awaiter(this, void 0, void 0, function* () {
-            const data = yield this.service.getData();
+            const data = yield service.getData();
             console.log("data", data);
         });
     }
@@ -37,14 +36,4 @@ __decorate([
 NestedChild = __decorate([
     customElement('nested-child')
 ], NestedChild);
-class Service {
-    getData() {
-        return __awaiter(this, void 0, void 0, function* () {
-            yield this.timeout(1000);
-            return { "value": "42" };
-        });
-    }
-    timeout(ms) {
-        return new Promise(resolve => setTimeout(resolve, ms));
-    }
-}
+//# sourceMappingURL=nested-child.js.map
